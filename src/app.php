@@ -3,7 +3,7 @@ require_once __DIR__ . '/config/instances.php';
 require_once __DIR__ . '/utils/get.data.body.php';
 require_once __DIR__ . '/utils/check.methods.php';
 
-function mainRouter(mixed $controllerRegister): void
+function App(mixed $controllerRegister): void
 {
    session_start();
    $body = getDataBody();
@@ -12,4 +12,4 @@ function mainRouter(mixed $controllerRegister): void
    header('Location: /');
 }
 
-mainRouter([$registerControllers, 'registerUser']);
+App([$registerControllers, 'registerUser']);
