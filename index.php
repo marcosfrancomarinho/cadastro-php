@@ -5,7 +5,7 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="stylesheet" href="./assets/bootstrap.min.css">
-   <title>Sign In</title>
+   <title>Cadastra-se</title>
 </head>
 
 <body class="bg-light">
@@ -13,7 +13,6 @@
    session_start();
    $success = $_SESSION['success'] ?? null;
    $error = $_SESSION['error'] ?? null;
-   echo $error;
    unset($_SESSION['success']);
    unset($_SESSION['error']);
    ?>

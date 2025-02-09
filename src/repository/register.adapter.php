@@ -5,17 +5,26 @@ require_once __DIR__ . '/../config/database.php';
 class RegisterAdapter implements IRegisterAdapter
 {
    private mysqli $connection;
+
    function __construct(mysqli $connection)
    {
-      $this->connection  = $connection;
+      $this->connection = $connection;
    }
+
    public function createRegisterUser(string $name, string $email, string $password)
    {
       try {
+         $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
          $sql = $this->connection->prepare('INSERT INTO users (name, email, password) VALUES(?, ?, ?)');
-         $sql->execute([$name, $email, $password]);
+         if ($sql === false) {
+            throw new Exception('Prepare failed: ' . $this->connection->error);
+         }
+         $sql->bind_param('sss', $name, $email, $hashedPassword);
+         if (!$sql->execute()) {
+            throw new Exception('Execute failed: ' . $sql->error);
+         }
       } catch (Exception $e) {
-         throw $e;
+         throw new Exception('Error creating user: ' . $e->getMessage());
       } finally {
          $this->connection->close();
       }
