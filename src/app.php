@@ -6,6 +6,7 @@ require_once __DIR__ . '/utils/check.methods.php';
 function App(mixed $controllerRegister): void
 {
    try {
+      session_start();
       checkMethodRequest();
       $body = getDataBody();
       $controllerRegister($body);
