@@ -1,5 +1,5 @@
 <?php
 interface IRegisterControllers
 {
-   function registerUser(mixed $body);
+   function registerUser(mixed $body): array;
 }

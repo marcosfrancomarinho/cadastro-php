@@ -9,7 +9,8 @@ function App(mixed $controllerRegister): void
       session_start();
       checkMethodRequest();
       $body = getDataBody();
-      $controllerRegister($body);
+      ['message' => $message] = $controllerRegister($body);
+      if ($message) $_SESSION['success'] = $message;
    } catch (Exception $e) {
       $_SESSION['error'] = $e->getMessage();
    } finally {

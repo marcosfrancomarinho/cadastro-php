@@ -20,15 +20,15 @@
       <h1>Cadastra-se e vem fazer parte da melhor.</h1>
       <form class="row g-2" action="./src/app.php" method="post">
          <div class="form-floating">
-            <input placeholder="Nome" class="form-control" type="text" name="name" id="name">
+            <input  placeholder="Nome" class="form-control" type="text" name="name" id="name">
             <label for="name">Nome</label>
          </div>
          <div class="form-floating">
-            <input class="form-control" placeholder="Email" type="email" name="email" id="email">
+            <input  class="form-control" placeholder="Email" type="email" name="email" id="email">
             <label for="email">Email</label>
          </div>
          <div class="form-floating">
-            <input class="form-control" placeholder="Senha" type="password" name="password" id="password">
+            <input  class="form-control" placeholder="Senha" type="password" name="password" id="password">
             <label for="password">Senha</label>
          </div>
          <div class="btn-group-lg">

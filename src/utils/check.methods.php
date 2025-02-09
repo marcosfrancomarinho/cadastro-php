@@ -6,6 +6,6 @@ function checkMethodRequest(): void
       $methodRequest = $_SERVER['REQUEST_METHOD'];
       if ($methodRequest !== 'POST') throw new Exception("metódo inválido");
    } catch (Exception $e) {
-      $_SESSION['error'] = $e->getMessage();
+      throw new Exception($e);
    }
 }

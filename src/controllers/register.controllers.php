@@ -1,6 +1,6 @@
 <?php
-require_once __DIR__.'/../interfaces/register.controllers.php';
-require_once __DIR__.'/../interfaces/register.adapter.php';
+require_once __DIR__ . '/../interfaces/register.controllers.php';
+require_once __DIR__ . '/../interfaces/register.adapter.php';
 
 class RegisterControllers implements IRegisterControllers
 {
@@ -10,14 +10,14 @@ class RegisterControllers implements IRegisterControllers
       $this->registerAdapter = $registerAdapter;
    }
 
-   public function registerUser(mixed $body): void
+   public function registerUser(mixed $body): array
    {
       try {
          ['name' => $name, 'email' => $email, 'password' => $password] =  $body;
          $this->registerAdapter->createRegisterUser($name, $email, $password);
-         $_SESSION['success'] = "usuário registrado com sucesso.";
+         return ['status' => 200, 'message' => "usuário registrado com sucesso."];
       } catch (Exception $e) {
-         $_SESSION['error'] = $e->getMessage();
+         throw new Exception($e->getMessage());
       }
    }
 }
