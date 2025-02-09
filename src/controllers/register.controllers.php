@@ -9,7 +9,7 @@ class RegisterControllers implements IRegisterControllers
    {
       $this->registerAdapter = $registerAdapter;
    }
-
+   
    public function registerUser(mixed $body): array
    {
       try {
