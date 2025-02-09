@@ -8,7 +8,7 @@ function getDataBody(): array
          "password" => $_POST['password']
       ];
       if (!$datasBody['email'] || ! $datasBody['name'] || ! $datasBody['password']) {
-         throw new Exception('os campos precisa está todos preenchidos');
+         throw new Exception('preencha todos os campos.');
       }
       return $datasBody;
    } catch (Exception $e) {
