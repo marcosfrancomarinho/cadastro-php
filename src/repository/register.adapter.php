@@ -11,7 +11,7 @@ class RegisterAdapter implements IRegisterAdapter
       $this->connection = $connection;
    }
 
-   public function createRegisterUser(string $name, string $email, string $password)
+   public function createRegisterUser(string $name, string $email, string $password):void
    {
       try {
          $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
